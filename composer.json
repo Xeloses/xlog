@@ -1,10 +1,10 @@
 {
-    "name": "xeloses/resty",
+    "name": "xeloses/xlog",
     "type": "library",
-    "description": "REST API client.",
-    "keywords": ["rest", "rest-client"],
-    "homepage": "https://github.com/Xeloses/resty",
-    "license": "MIT",
+    "description": "Custom logger for PHP exceptions/errors/warnings/notices.",
+    "keywords": ["log", "logging", "logger", "custom-logging", "custom-logger", "custom-logs"],
+    "homepage": "https://github.com/Xeloses/xlog",
+    "license": "GNU GPL v3",
     "authors": [
         {"name": "Xeloses"}
     ],
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Xeloses\\RESTy\\": "lib"
+            "Xeloses\\XLog\\": "lib"
         }
     }
 }
