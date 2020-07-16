@@ -82,6 +82,8 @@ Options:
     > Default value is `1048576` = 1 Mb.
 * `overwrite` - overwrite log file when it reach max size or not *(see description of `filesize` option above)*
     > Default value is `TRUE`.
+    
+> **WARNING**: Directories for log created by class will have `0777` access mode. Log files created by class will have `0775` access mode. Path and/or filename should be added to `.htaccess` manually to close it from public access!
 
 ## Write to log.
 To write some custom message to log use:
