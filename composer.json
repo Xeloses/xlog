@@ -4,7 +4,7 @@
     "description": "Custom logger for PHP exceptions/errors/warnings/notices.",
     "keywords": ["log", "logging", "logger", "custom-logging", "custom-logger", "custom-logs"],
     "homepage": "https://github.com/Xeloses/xlog",
-    "license": "GNU GPL v3",
+    "license": "GPL-3.0",
     "authors": [
         {"name": "Xeloses"}
     ],
