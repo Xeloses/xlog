@@ -1,9 +1,9 @@
 # XLog
-Intercept and log PHP exceptions/errors/warnings/notices.
+Custom logger for PHP exceptions/errors/warnings/notices.
 
 ## Usage
 Register errors/exception handler:
-```
+```php
 void XLog::register(?ILogOutputProvider $provider, int $log_level, bool $debug)
 ```
 * `$provider` - log output provider:
