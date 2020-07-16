@@ -119,4 +119,4 @@ throw new Exception('Exception example.');
 ```
 Output:
 
-![Preview](https://raw.github.com/Xeloses/xlog/master/preview_logscreen.jpg)
+![Preview](https://github.com/Xeloses/xlog/raw/master/preview_logscreen.jpg)
