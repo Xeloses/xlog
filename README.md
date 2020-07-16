@@ -1,5 +1,5 @@
 # XLog
-Intercept and log PHP exceptions/errors/warnings.
+Intercept and log PHP exceptions/errors/warnings/notices.
 
 ## Usage
 Register errors/exception handler:
