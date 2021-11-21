@@ -39,8 +39,8 @@ void XLog::register(?ILogOutputProvider $provider, int $log_level, bool $debug)
         define('DEBUG',true);
         XLog::register();
         ```
-        When `DEBUG` is defined and set to `TRUE` method `XLog::register()` can be called without arguments. It will automatically use `LogScreen` as output provider *(but you still can pass your own provider)* and set `$debug` attribute to `TRUE`.
-    > Default value is `FALSE`.
+        When `DEBUG` is defined and set to `true` method `XLog::register()` can be called without arguments. It will automatically use `LogScreen` as output provider *(but you still can pass your own provider)* and set `$debug` attribute to `true`.
+    > Default value is `false`.
 
 This method calls
 ```php
@@ -92,10 +92,10 @@ Options:
     * `{d}` - day, 1 or 2 digits, equals to PHP `date('j')`;
     * `{n}` - counter *(usable only when `overwrite` option is `TRUE`)*.
     > Default value is `./logs/{date}.log`.
-* `filesize` - maximum size of log file in bytes, when lof file reach this size it will be overwritten *(if `overwrite` option is `FALSE`)* or new log file will be created *(if `overwrite` option is `FALSE`)*.
+* `filesize` - maximum size of log file in bytes, when lof file reach this size it will be overwritten *(if `overwrite` option is `true`)* or new log file will be created *(if `overwrite` option is `false`)*.
     > Default value is `1048576` = 1 Mb.
 * `overwrite` - overwrite log file when it reach max size or not *(see description of `filesize` option above)*
-    > Default value is `TRUE`.
+    > Default value is `true`.
     
 > **WARNING**: Directories for log created by class will have `0777` access mode. Log files created by class will have `0775` access mode. Path and/or filename should be added to `.htaccess` manually to close it from public access!
 
