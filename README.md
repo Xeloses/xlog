@@ -2,19 +2,7 @@
 Custom logger for PHP exceptions/errors/warnings/notices.
 
 ## Installation
-Add `repositories` section to your `` file:
-```json
-{
-    ...,
-    "repositories": [
-        {
-            "type": "vcs",
-    	    "url": "https://github.com/Xeloses/xlog"
-	}
-    ]
-}
-```
-Run at the project root directory:
+* Using composer:
 ```
 composer config --append repositories.xlog vcs https://github.com/Xeloses/xlog
 composer require xeloses/xlog
