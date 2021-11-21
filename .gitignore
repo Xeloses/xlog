@@ -1,3 +1,5 @@
+vendor/
+.env
 .cmd
 .log
 .tmp

@@ -202,7 +202,7 @@ class XLog
     protected static function handleShutdown(): void
     {
         $error = error_get_last();
-        if($error["type"])
+        if($error && $error["type"])
         {
             self::handleError($error["type"],$error["message"],$error["file"],$error["line"]);
         }

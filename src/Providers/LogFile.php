@@ -30,6 +30,7 @@ use Xeloses\XLog\Exceptions\LogFileException;
 
 class LogFile implements ILogOutputProvider
 {
+    use \Xeloses\XLog\Traits\PhpDocLinkHelper;
     use \Xeloses\XLog\Traits\ErrorCodeHelper;
     use \Xeloses\XLog\Traits\VarTypeHelper;
 
@@ -42,6 +43,8 @@ class LogFile implements ILogOutputProvider
         'error'   => '[{timestamp}] <{error}> {description} (in {file}:{line})',
         'message' => '[{timestamp}] {message}',
         'dump'    => '[{timestamp}] DUMP <{type}>: {comment}'.PHP_EOL.'{value}',
+
+        'link'    => '{text}', // remove links; to print links use template like '{text} ({url})'
     ];
 
     /**
@@ -92,6 +95,7 @@ class LogFile implements ILogOutputProvider
         $error_type = $this->getErrorType($error_code);
 
         $type = strtolower($error_category);
+        $error_description = $this->formatLinks($error_description, $this->templates['link']);
 
         $log = str_replace(
             [
@@ -99,14 +103,14 @@ class LogFile implements ILogOutputProvider
                 '{description}',
                 '{file}',
                 '{line}',
-                '{timestamp}',
+                '{timestamp}'
             ],
             [
                 $error_category.': '.$error_type,
                 $error_description,
                 $file,
                 $line,
-                date($this->options['timestamp_format']),
+                date($this->options['timestamp_format'])
             ],
             $this->templates['error']
         );

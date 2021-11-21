@@ -25,6 +25,7 @@ use Xeloses\XLog\Interfaces\ILogOutputProvider;
 
 class LogScreen implements ILogOutputProvider
 {
+    use \Xeloses\XLog\Traits\PhpDocLinkHelper;
     use \Xeloses\XLog\Traits\ErrorCodeHelper;
     use \Xeloses\XLog\Traits\VarTypeHelper;
 
@@ -56,6 +57,8 @@ class LogScreen implements ILogOutputProvider
                             '<pre style="display:block;margin:10px 10px 5px;padding:7px;border:1px inset #aaa;border-radius:10px;background:#222;color:#ddd;font-size:.85em;">{value}</pre>'.
                         '</div>'.
                      '</div>'.PHP_EOL,
+
+        'link' => '<a href="{url}" title="Open PHP documentation in new tab" target="_blank" rel="noopener noreferer">{text}</a>'.PHP_EOL
     ];
 
     /**
@@ -131,6 +134,7 @@ class LogScreen implements ILogOutputProvider
         $error_type = $this->getErrorType($error_code);
 
         $type = strtolower($error_category);
+        $error_description = $this->formatLinks($error_description, $this->html['link']);
 
         echo str_replace(
             [
@@ -144,7 +148,7 @@ class LogScreen implements ILogOutputProvider
             ],
             [
                 '<span style="text-decoration:underline">'.$error_category.'</span>: '.$error_type,
-                $this->safeStr($error_description),
+                $error_description,
                 $file,
                 $line,
                 date($this->options['timestamp_format']),
