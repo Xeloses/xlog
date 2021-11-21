@@ -1,15 +1,41 @@
 # XLog
 Custom logger for PHP exceptions/errors/warnings/notices.
 
+## Installation
+Add `repositories` section to your `` file:
+```json
+{
+    ...,
+    "repositories": [
+        {
+            "type": "vcs",
+    	    "url": "https://github.com/Xeloses/xlog"
+	}
+    ]
+}
+```
+Run at the project root directory:
+```
+composer config --append repositories.xlog vcs https://github.com/Xeloses/xlog
+composer require xeloses/xlog
+```
+or
+```
+composer config --append repositories.xlog vcs https://github.com/Xeloses/xlog
+composer require xeloses/xlog --dev
+```
+
 ## Usage
 Register errors/exception handler:
 ```php
+use Xeloses\XLog\XLog;
+
 void XLog::register(?ILogOutputProvider $provider, int $log_level, bool $debug)
 ```
 * `$provider` - log output provider:
     * `LogScreen` - output log to browser;
     * `LogFile` - output log to file;
-    * any custom implementation of `ILogOutputProvider`.
+    * any custom implementation of `Xeloses\XLog\Interfaces\ILogOutputProvider`.
 * `$log_level` - combination of PHP LOG_LEVEL constants or:
     * `XLog::DEFAULT` - equals to `E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED`;
     * `XLog::ALL` - all errors/warnings/notices *(include released in future)*;
